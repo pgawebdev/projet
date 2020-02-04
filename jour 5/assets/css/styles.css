@@ -3,10 +3,8 @@ body{
 	width: 100%;
 	margin: 0;
 }
+
  /*Banner*/
-
-
-
 	.col{
 		display: flex;
 		justify-content: center;
@@ -56,10 +54,6 @@ body{
 		background-color:#34ebe1
 	}
 
-	section{
-		background-color: rgb(224, 123, 119);
-	}
-
 	h1{
 		text-align: center;
 		font-size: 22px;
@@ -67,24 +61,20 @@ body{
 
 	h2{
 		font-size: 20px;
-		color:red;
 	}
-		
-	#vert{
-		color: green;
-	}
-
-
 
 .date{
 	font-size: x-small;
-	color: grey;
+
+	color: rgb(255, 255, 255);
+
 }
 /*Main*/
 
 main{
 	width:60%;
 	margin: 0 auto;
+	background-color: #79797963;
 }
 /*Main*/
 
@@ -108,6 +98,7 @@ button a{
 #biche{
 	position: absolute;
 	display: flex;
+	width: 20%;
 	max-width: 272px;
 	top: 723px;
 	right: 0;
@@ -117,6 +108,7 @@ button a{
 #samo{
 	position: absolute;
 	display: flex;
+	width: 20%;
 	max-width: 272px;
 	top: 723px;
 	left: 0px;
