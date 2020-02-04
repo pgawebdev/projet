@@ -8,6 +8,7 @@ body{
 	.col{
 		display: flex;
 		justify-content: center;
+		margin-top: 66px;
 		
 	}
 		.colonne1 {
@@ -35,10 +36,11 @@ body{
  /*Banner*/
 	nav{
 		position: fixed;
-		top: 77px;
-		left: 53px;
+		top: 5Opx;
+		left: 0px;
+		padding-left: 16px;
 		display: inline-grid;
-		background-color:#0000002e;
+		background-color:#0000007a;
 		z-index: 1;
 	}
 
@@ -50,12 +52,6 @@ body{
 		margin-top: 10px;
 		text-decoration: none;
 		color: white;
-	}
-	
-	#placeholder1{
-		width: 90px;
-		height:120px;
-		background-color:#34ebe1
 	}
 
 	h1{
@@ -71,11 +67,10 @@ body{
 	p{
 		font-family: 'Roboto';
 	}
+
 .date{
 	font-size: x-small;
-
 	color: #737373;
-
 }
 /*Main*/
 
@@ -95,14 +90,15 @@ button a{
 
 #job{
 	position: fixed;
-	top: 77px;
-	right: 53px;
+	top: 23px;
+	right: -8px;
 	background-color:
-	#3535d5de;	
-	color:	white;
-	width: 120px;
-	height: 60px ;
-	border-radius: 8% ;
+	#3535d5de;
+	color:
+	white;
+	width: 170px;
+	height: 60px;
+	border-radius: 15px;
 	font-size: 13px; 
 	}
 
