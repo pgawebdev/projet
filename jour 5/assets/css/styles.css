@@ -1,0 +1,147 @@
+
+body{
+	width: 100%;
+	margin: 0;
+}
+ /*Banner*/
+
+
+
+	.col{
+		display: flex;
+		justify-content: center;
+		
+	}
+		.colonne1 {
+			object-fit: cover;
+			object-position: -20% 0;
+			width:100%;
+		}
+
+		.colonne2{
+			object-fit: cover;
+			object-position: -20% 0;
+			width: 100%;
+		}
+
+		.colonne3{
+			object-fit: cover;
+			object-position: -20% 0;
+			width: 100%;
+		}
+
+	section img{
+		max-width: 100%;
+	}
+
+ /*Banner*/
+	nav{
+		position: fixed;
+		top: 77px;
+		left: 53px;
+		display: inline-grid;
+		background-color:#0000002e;
+		z-index: 1;
+	}
+
+	nav a{
+	margin-top: 10px;
+	text-decoration: none;
+	color: white;
+	}
+
+	#placeholder1{
+		width: 90px;
+		height:120px;
+		background-color:#34ebe1
+	}
+
+	section{
+		background-color: rgb(224, 123, 119);
+	}
+
+	h1{
+		text-align: center;
+		font-size: 22px;
+	}
+
+	h2{
+		font-size: 20px;
+		color:red;
+	}
+		
+	#vert{
+		color: green;
+	}
+
+
+
+.date{
+	font-size: x-small;
+	color: grey;
+}
+/*Main*/
+
+main{
+	width:60%;
+	margin: 0 auto;
+}
+/*Main*/
+
+/* SideBar*/
+
+button a{
+		color: white;
+		text-decoration: none;
+}
+
+#job{
+	position: fixed;
+	top: 77px;
+	right: 53px;
+	background-color:
+	#3535d5de;	
+	color:	white;
+	
+	}
+
+#biche{
+	position: absolute;
+	display: flex;
+	max-width: 272px;
+	top: 723px;
+	right: 0;
+
+}
+
+#samo{
+	position: absolute;
+	display: flex;
+	max-width: 272px;
+	top: 723px;
+	left: 0px;
+}
+
+#pinoc{
+	position: absolute;
+    max-width: 231px;
+    top: 67px;
+    left: 42%;
+}
+
+
+
+/*Contact*/
+
+#name{
+	margin-left: 103px;
+}
+#email{
+	margin-left: 105px;
+}
+#message{
+	margin-left: 23px;
+	height: 100px;
+}
+
+/*Contact*/
