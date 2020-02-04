@@ -47,7 +47,7 @@ body{
 	text-decoration: none;
 	color: white;
 	}
-
+	
 	#placeholder1{
 		width: 90px;
 		height:120px;
@@ -92,8 +92,17 @@ button a{
 	background-color:
 	#3535d5de;	
 	color:	white;
-	
+	width: 120px;
+	height: 60px ;
+	border-radius: 8% ;
+	font-size: 12px;
 	}
+
+#job:hover{
+	background-color:#2d2db4de ;
+	border: 2px;
+	font-size: 13px;
+}
 
 #biche{
 	position: absolute;
