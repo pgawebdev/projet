@@ -7,7 +7,8 @@
     <title>Une template PHP</title>
 </head>
 <body>
+    <h1>Un titre</h1>
     <header>
-        <?php require_once"includes/nav.inc.php"?>
+        <?php require_once 'nav.php' ?>
     </header>
     <main>
