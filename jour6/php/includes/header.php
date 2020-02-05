@@ -9,6 +9,6 @@
 <body>
     <h1>Un titre</h1>
     <header>
-        <?php require_once 'nav.php' ?>
+        <?php require_once 'php/includes/nav.php' ?>
     </header>
     <main>
