@@ -8,9 +8,9 @@
             <label for="email">Mail: </label>
             <input type="email" name="email" id="email" required>
         </div>
-        <div class="form">
-            <label for="name">Votre message: </label>
-            <textarea type="text" name="name" cols='80' row='8' id="message" required>
+        <div>     
+            <label for="mesage">Message:</label>
+            <textarea id="message" name="user_message" cols="40" row="6" required></textarea> 
         </div>
         <div class="form">
             <input type="submit" value="Envoyer">
