@@ -143,31 +143,7 @@
 
             <!--Fin CV-->
 
-            <!--Formulaire de contact-->
-            <section id='contact'>
-                <form action="#contact" method="GET" class="form">
-                    <div class="form">
-                        <label for="name">Nom: </label>
-                        <input type="text" name="name" id="name" placeholder="nom" required>
-                    </div>
-                    <div class="form">
-                        <label for="email">Mail: </label>
-                        <input type="email" name="email" id="email"  autocomplete="off" placeholder="mail@nomdedomaine" required>
-                    </div>
-                    <div class="form">
-                        <label for="name">Votre message: </label>
-                        <input type="text" name="name" id="message"cols="60" rows="8" maxlength="1000" placeholder="Entrez votre message" required>
-                    </div>
-                    <div class="form">
-                        <input type="submit" value="Envoyer">
-                    </div>
-                </form>
-                <div>
-                    <!-- ICI ON VEUT VOIR LE MESSAGE DE CONFIRMATION -->
-                    <?php require_once "php/controller/traitement-contact.php" ?>
-                </div>
-            </section>
-            <!--Formulaire de contact-->
+        <?php require_once 'php/view/formulaire.php'?>
         </main>
 
         <!--Sidebar droite-->

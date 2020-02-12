@@ -3,7 +3,7 @@
 $nbInfo = count($_REQUEST); /*$mavariable = count($_REQUEST); */
 if ($nbInfo > 0) /* Si ($mavariable est supérieur à la valeur 0*/ 
 
-
+{
 $nom        = $_REQUEST["nom"];
 $email      = $_REQUEST["email"];
 $message    = $_REQUEST["message"];
@@ -13,9 +13,7 @@ $messageStocke =
 
     nom: $nom
     email: $email
-    message:
-    $message
-
+    message: $message
 
 texte;
 
