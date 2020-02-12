@@ -1,0 +1,55 @@
+
+body{
+	width: 100vw;
+	margin: 0px;
+}
+ /*Banner*/
+
+
+ /*Banner*/
+	nav{
+		position: fixed;
+		top: 77px;
+		left: 53px;
+		display: inline-grid;
+		background-color:#0000002e;
+		z-index: 1;
+	}
+
+	nav a{
+	margin-top: 10px;
+	text-decoration: none;
+	color: white;
+	}
+/**Colonage globale**/
+.container{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0px;
+	display: flex;  /* PERMET D'AFFICHER LES BALISES ENFANT EN COLONNES */
+    justify-content: space-between;
+	}
+
+	main{
+		width:60vw
+	}
+
+	#left-side{
+		width: 20vw;
+	}
+		#left-side img{
+			left: 0px;
+			object-fit: cover;
+			max-width: 100%;
+		}
+
+	#right-side{
+	width: 20vw;
+	right: 0px;
+	}
+		#right-side img{
+			object-fit: cover;
+			max-width: 100%;
+		}
+/**Colonage globale**/
+	
