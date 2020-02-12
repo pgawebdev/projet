@@ -1,5 +1,5 @@
 <section>
-    <form action="" method="get" class="form">
+    <form action="#contact" method="POST" class="form">
         <div class="form">
             <label for="name">Nom: </label>
             <input type="text" name="name" id="name" required>
@@ -13,7 +13,7 @@
             <textarea id="message" name="user_message" cols="40" row="6" required></textarea> 
         </div>
         <div class="form">
-            <input type="submit" value="Envoyer">
+            <input id="contact"type="submit" value="Envoyer">
         </div>
     </form>
 </section>
