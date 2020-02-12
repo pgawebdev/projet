@@ -3,10 +3,8 @@ body{
 	width: 100vw;
 	margin: 0px;
 }
- /*Banner*/
 
-
- /*Banner*/
+ /* Menu */
 	nav{
 		position: fixed;
 		top: 77px;
@@ -21,7 +19,9 @@ body{
 	text-decoration: none;
 	color: white;
 	}
-/**Colonage globale**/
+/* Menu */
+
+/* Colonage */
 .container{
 	box-sizing: border-box;
 	width: 100%;
@@ -29,7 +29,20 @@ body{
 	display: flex;  /* PERMET D'AFFICHER LES BALISES ENFANT EN COLONNES */
     justify-content: space-between;
 	}
+/* Colonage */
 
+ /*Banner*/
+#banner{
+	
+	height: 500px;
+}
+	#banner img{
+		object-fit: cover;
+		max-width: 200%;
+	}
+ /*Banner*/
+
+/* Gestion individuel des colonnes principals */
 	main{
 		width:60vw
 	}
@@ -51,5 +64,5 @@ body{
 			object-fit: cover;
 			max-width: 100%;
 		}
-/**Colonage globale**/
+/* Gestion individuel des colonnes principals*/
 	

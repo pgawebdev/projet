@@ -22,28 +22,23 @@
         <!-- Fin Menu de navigation-->
 
         <!-- Banner -->
-        <h1>Pierre-Guillaume Archen</h1>
-        <section class="container">
-                <div>
-                    <img src="assets/img/ufolk-the-molx-img050.jpg" id="ocean" alt="Illustration">
-                </div>
-                <div>   
-                    <img src="assets/img/ufolk-the-molx-img0452.jpg" id="ville" alt="illustration">
-                </div> 
-                <div>
-                
-                </div>
+        <section>
+            <h1>Pierre-Guillaume Archen</h1>
+            <div class="container" id="banner">
+                <img src="assets/img/ufolk-the-molx-img050.jpg" id="ocean" alt="Illustration">
+                <img src="assets/img/ufolk-the-molx-img0452.jpg" id="ville" alt="illustration">
+                <img src="assets/img/ufolk-folk-img002.jpg">
+            </div>
         </section>
         <!-- Banner -->
     </header>
-    
+
 
     <!--Container global-->
-    <div class=container>
+    <div class="container">
         <!-- Sidebar gauche-->
         <section id="left-side">
             <img id="samo" src="assets/img/molx-samourai-colov2.jpg" alt="illustration représentant un samouraï">
-            <img src="assets/img/ufolk-folk-img002.jpg" id="voleuse" alt="illustration"> 
         </section>
         <!--Sidebar gauche-->
         <!-- Début du CV -->
@@ -56,7 +51,7 @@
                     <h4>Intégrateur web et mobile :</h4>
                     Marseille-France <span class="date"> Avr.2016 - Juin 2016</span>
                     <p>Initiation au HTLM/CSS, Gestion de Base de données MySQL, PHP
-                    <span>: Wordpress,Wamp</span>Création d’un site en statique</p>
+                        <span>: Wordpress,Wamp</span>Création d’un site en statique</p>
                 </div>
                 <div>
                     <h3> Haute Ecole Albert Jacquard</h3>
@@ -119,56 +114,56 @@
             </section>
             <!--Emplois-->
 
-                <!--Compétences-->
-                <section id="competences">
-                    <h2>Compétences</h2>
-                    <p> Langues :
-                        Français
-                        Anglais
+            <!--Compétences-->
+            <section id="competences">
+                <h2>Compétences</h2>
+                <p> Langues :
+                    Français
+                    Anglais
 
-                        Informatique :
-                        Excel Débutant
-                        PowerPoint Bon niveau
-                        Photoshop, Illustrator : Maîtrise Pro.
+                    Informatique :
+                    Excel Débutant
+                    PowerPoint Bon niveau
+                    Photoshop, Illustrator : Maîtrise Pro.
 
-                        Thinkerview – Chaine YouTube interviewant des personnes de tous horizons
-                        Prise de contact avec des intervenants potentiels
-                        Traduction collaborative de vidéos Français <-> Anglais
+                    Thinkerview – Chaine YouTube interviewant des personnes de tous horizons
+                    Prise de contact avec des intervenants potentiels
+                    Traduction collaborative de vidéos Français <-> Anglais
 
-                            Informatique
-                            Veille numérique
+                        Informatique
+                        Veille numérique
 
-                            Bande dessiné – Ce qui m’a mené à faire des études de graphisme.
+                        Bande dessiné – Ce qui m’a mené à faire des études de graphisme.
 
-                            Cinéma – Participation au club des « Cinévores » à Gardanne (4 ans), intérêt particulier pour la
-                            Science-fiction
-                    </p>
-                </section>
-                <!--Compétences-->
+                        Cinéma – Participation au club des « Cinévores » à Gardanne (4 ans), intérêt particulier pour la
+                        Science-fiction
+                </p>
+            </section>
+            <!--Compétences-->
 
-                <!--Fin CV-->
+            <!--Fin CV-->
 
-                <!--Formulaire de contact-->
-                <section id='contact'>
-                    <form action="" method="get" class="form">
-                        <div class="form">
+            <!--Formulaire de contact-->
+            <section id='contact'>
+                <form action="" method="get" class="form">
+                    <div class="form">
                         <label for="name">Nom: </label>
                         <input type="text" name="name" id="name" required>
-                        </div>
-                        <div class="form">
+                    </div>
+                    <div class="form">
                         <label for="email">Mail: </label>
                         <input type="email" name="email" id="email" required>
-                        </div>
-                        <div class="form">
+                    </div>
+                    <div class="form">
                         <label for="name">Votre message: </label>
                         <input type="text" name="name" id="message" required>
-                        </div>
-                        <div class="form">
+                    </div>
+                    <div class="form">
                         <input type="submit" value="Envoyer">
-                        </div>
-                    </form>
-                </section>
-                <!--Formulaire de contact-->
+                    </div>
+                </form>
+            </section>
+            <!--Formulaire de contact-->
         </main>
 
         <!--Sidebar droite-->
@@ -178,7 +173,7 @@
                 <button id="job"><i class="material-icons">arrow-upward><a href="./index.html"></a></button></i>
             </div>
         </section>
-        <!--Sidebar droite-->        
+        <!--Sidebar droite-->
     </div>
     <!-- Container global-->
     <footer>
