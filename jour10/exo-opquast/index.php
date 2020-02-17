@@ -23,10 +23,16 @@ require_once 'php/model/glossaire.php';
         $html =
 
     <<<OUTPUT
-        <div>
-        <h1>$title</h1>
-        <p>$description</p>
+    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+        <div class="card-header">$title</div>
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text">$description.</p>
         </div>
+    </div>
+  
+      
+    
        
     OUTPUT;
 
