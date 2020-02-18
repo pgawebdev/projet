@@ -1,12 +1,11 @@
 <?php
+$templates = scandir('templates', 1); // Défini la variable $template comme listant sous forme de tableau indexé le répertoire pointé 'templates' et l'ordonne en croissant.
 
 if (!empty($_REQUEST['page'])) { // Si le nom de la 'page' est rempli //
     $page = strtolower($_REQUEST['page']).'.php'; // Défini la variable $page comme le nom de la page active en minuscule et ajoute l'extension.php
-    $templates = scandir('templates', 1); // Défini la variable $template comme listant sous forme de tableau indexé le répertoire pointé 'templates' et l'ordonne en croissant.
     $check = 0;
 } else if (empty($_REQUEST['page'])){ // Si le paramètre 'page' est vide//
     $check = 1;//On crée la variable $check avec pour valeur 1
-    $templates = scandir('templates', 1);
 }
 
 
