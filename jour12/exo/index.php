@@ -11,9 +11,9 @@
     <header>
         <button onclick="changeDisplay('block');" id='burger'>Menu</button>
         <nav id='slide'>
-            <a href="#">Lien 1</a>
-            <a href="#">Lien 2</a>
-            <a href="#">Lien 3</a>
+            <a href="php/view/home.php">Accueil</a>
+            <a href="php/view/page.php"></a>
+            <a href="php/view/contact.php"></a>
         </nav>
     </header>
     <main>
