@@ -12,5 +12,9 @@ function changeDisplay(newDisplay) {
 
 //on modifie le css de la nav
 
-window.addEventListener("mouseout",function())
+document.body.addEventListener("mouseleave",function() {
+    // alert("Kesktuféla ?");
+    console.log("event fired")
+
+});
 
