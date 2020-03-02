@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+
+/*Images*/
+    img{
+        max-width: 100vw;
+    }
+    /*Miniatures*/
+    .container{
+        display: flex;
+    }
+
+        .container img{
+            display: inline;
+            width: calc(100vw/3);
+            object-fit: cover;
+        }
+
+/*Contact*/
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
