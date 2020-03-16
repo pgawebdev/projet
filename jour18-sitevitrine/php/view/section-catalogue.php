@@ -8,7 +8,7 @@
                 foreach($listMiniature as $miniature){ /*Pour chaque élément de $listMinature on crée un variable $miniature qui contient le fichier correspondant */ 
                 echo
                 <<<CODEHTML
-                <img src=$miniature alt=$miniature></img> 
+                <img src="$miniature" alt="$miniature"></img> 
                 CODEHTML;
                 }
                 ?>

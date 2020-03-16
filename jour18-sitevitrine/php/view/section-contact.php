@@ -5,7 +5,7 @@
         <input type="text" name="Nom" required id="">
         <input type="text" name="Prénom" id="">
         <input type="email" name="email" id="">
-        <textarea name="message" id="" cols="30" rows="10"></textarea>
+        <textarea name="message" id="" cols="60" rows="30"></textarea>
         <button type="submit">Prenez rendez-vous</button>
     </form>        
 </section>
