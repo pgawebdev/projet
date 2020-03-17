@@ -72,6 +72,8 @@ $identifiantFormulaire = filtrer("identifiantFormulaire");//On utilise la foncti
 CODESQL;
                 //On Prépare l'envoie à la BDD
                 $pdo = new PDO("mysql:host=localhost;dbname=attestation;charset=utf8;", "root", ""); //Connexion à la BDD
+                $pdoStatement = $pdo->prepare($requeteSQL);//On stock dans $pdoStatement,0000 pour preparer l'envoi de $requeteSQL
+
             }
     }
 
