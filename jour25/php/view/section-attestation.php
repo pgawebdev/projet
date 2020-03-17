@@ -40,14 +40,14 @@
 <?php
 
 function filtrer($name){ //On crée un fonction nommé filtrer avec pour argument la variable name
-    $info = $_REQUEST[$name] ?? ""; // A partir de la variable name on crée un tableau indexé des info à l'interieur de la balise et stocké dans la variable info
+    $info = $_REQUEST[$name] ?? ""; // On stock dans une variable nommée $info la valeur de $name
     return $info; //On récupuère la $info
 }
 // CODE POUR TRAITER LE FORMULAIRE
 // VERIFIER SI LE FORMULAIRE A ETE ENVOYE
-$identifiantFormulaire = filtrer("identifiantFormulaire");
+$identifiantFormulaire = filtrer("identifiantFormulaire");//On utilise la fonction filtrer sur identifiantFormulaire
 
-    if ($identifiantFormulaire == "declaration"){
+    if ($identifiantFormulaire == "declaration"){//Si la value est = a "declaration"
         $tabAssoColonneValeur = [// ALORS JE VAIS RECUPERER LES INFOS
             "nom"    => filtrer("nom"),
             "prenom"    => filtrer("prenom"),
@@ -61,9 +61,17 @@ $identifiantFormulaire = filtrer("identifiantFormulaire");
             && $adresse != ""
             && $raison  != ""){
                 $tabAssoColonneValeur["numero"] = uniqid() //Crée un numéro unique pour le formulaire
-                $tabAssoColonneValeur["dateDeclaration"] = date("Y-m-d H:i:s"); //Crée un numéro unique pour le formulaire
+                $tabAssoColonneValeur["dateDeclaration"] = date("Y-m-d H:i:s"); //Dater le formulaire
 
-                //On prépare la requête SQL pour envoyer les infos en BDD
+                $requeteSQL =//On prépare la requête SQL pour envoyer les infos en BDD et on la stock dans la variable $requeteSQL
+<<<CODESQL
+                INSERT INTO 'declaration'
+                (nom, prenom, adresse, raison, numero, dateDeclaration)
+                VALUES
+                (:nom, :prenom, :adresse, :raison, :numero, :dateDeclaration)
+CODESQL;
+                //On Prépare l'envoie à la BDD
+                $pdo = new PDO("mysql:host=localhost;dbname=attestation;charset=utf8;", "root", ""); //Connexion à la BDD
             }
     }
 
