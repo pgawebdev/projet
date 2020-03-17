@@ -3,3 +3,5 @@
     require_once 'php/view/section-admin.php';
     require_once 'php/view/footer.php';
 ?>
+
+<!--Une modif-->
