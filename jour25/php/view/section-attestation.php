@@ -39,9 +39,9 @@
         <div class="confirmation">
 <?php
 
-function filtrer($name){
-    $info = $_REQUEST[$name] ?? "";
-    return $info;
+function filtrer($name){ //On crée un fonction nommé filtrer avec pour argument la variable name
+    $info = $_REQUEST[$name] ?? ""; // A partir de la variable name on crée un tableau indexé des info à l'interieur de la balise et stocké dans la variable info
+    return $info; //On récupuère la $info
 }
 // CODE POUR TRAITER LE FORMULAIRE
 // VERIFIER SI LE FORMULAIRE A ETE ENVOYE
