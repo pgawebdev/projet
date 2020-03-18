@@ -43,11 +43,29 @@ function filtrer($name){ //On crée un fonction nommé filtrer avec pour argumen
     $info = $_REQUEST[$name] ?? ""; // On stock dans une variable nommée $info la valeur de $name
     return $info; //On récupuère la $info
 }
+
+function insererSQL($nomTable, $tabAsso){
+
+    $requeteSQL =//On prépare la requête SQL pour envoyer les infos en BDD et on la stock dans la variable $requeteSQL        
+<<<CODESQL
+                INSERT INTO 'declaration'
+                (nom, prenom, adresse, raison, numero, dateDeclaration)
+                VALUES
+                (:nom, :prenom, :adresse, :raison, :numero, :dateDeclaration)
+CODESQL;
+                //On Prépare l'envoie à la BDD
+                $pdo = new PDO("mysql:host=localhost;dbname=attestation;charset=utf8;", "root", ""); //Connexion à la BDD
+                $pdoStatement = $pdo->prepare($requeteSQL);//On stock dans $pdoStatement, pour preparer l'envoi de $requeteSQL
+                $pdoStatement->execute($tabAsso);
+                $pdoStatement->debugDumpParams();
+}
+
 // CODE POUR TRAITER LE FORMULAIRE
 // VERIFIER SI LE FORMULAIRE A ETE ENVOYE
 $identifiantFormulaire = filtrer("identifiantFormulaire");//On utilise la fonction filtrer sur identifiantFormulaire
 
-    if ($identifiantFormulaire == "declaration"){//Si la value est = a "declaration"
+    if ($identifiantFormulaire == "declaration")
+    {//Si la value est = a "declaration"
         $tabAssoColonneValeur = [// ALORS JE VAIS RECUPERER LES INFOS
             "nom"    => filtrer("nom"),
             "prenom"    => filtrer("prenom"),
@@ -59,25 +77,20 @@ $identifiantFormulaire = filtrer("identifiantFormulaire");//On utilise la foncti
             $nom        != "" //Si tout les champs sont remplis 
             && $prenom  != ""
             && $adresse != ""
-            && $raison  != ""){
+            && $raison  != "")
+            {
                 $tabAssoColonneValeur["numero"] = uniqid(); //Crée un numéro unique pour le formulaire
                 $tabAssoColonneValeur["dateDeclaration"] = date("Y-m-d H:i:s"); //Dater le formulaire
 
-                $requeteSQL =//On prépare la requête SQL pour envoyer les infos en BDD et on la stock dans la variable $requeteSQL
-<<<CODESQL
-                INSERT INTO 'declaration'
-                (nom, prenom, adresse, raison, numero, dateDeclaration)
-                VALUES
-                (:nom, :prenom, :adresse, :raison, :numero, :dateDeclaration)
-CODESQL;
-                //On Prépare l'envoie à la BDD
-                $pdo = new PDO("mysql:host=localhost;dbname=attestation;charset=utf8;", "root", ""); //Connexion à la BDD
-                $pdoStatement = $pdo->prepare($requeteSQL);//On stock dans $pdoStatement, pour preparer l'envoi de $requeteSQL
+                
 
+                insererSQL("declaration", $tabAssoColonneValeur);
+
+                echo "Votre déclaration a bien été enregistrée, notez bien votre numéro d'attestation : {$tabAssoColonneValeur["numero"]}";
             }
     }
-
-    else{
+    else
+    {
         echo "Veuillez remplir tout les champs";
     }
 
