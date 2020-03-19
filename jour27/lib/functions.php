@@ -19,23 +19,32 @@ function getConnection(){ //Création de la fonction de connection à la DB
     return $db;
 }
 
+function normalize($chain){
+
+    $pattern = '/\s/';
+    // on utilise preg_replace pour les remplacer
+    $normalizedChain = preg_replace($pattern, '-', $chain);
+
+    return uniqid().'-'.$normalizedChain;
+}
+
 
 function handleForm($info)
 { //On crée une variable pour récuépérer les information du formulaire
     if(isset($info['fileUpload'])) 
     {
-        extract($info);
+        extract($info['fileUpload']);
     
-        if($info === UPLOAD_ERR_OK)
-        {
-            // on utilise une expression régulière pour trouver les espaces dans une chaîne de caractères
-            $pattern = '/\s/';
-            // on utilise preg_replace pour les remplacer
-            $name = preg_replace($pattern, '-', $name);
+        if(UPLOAD_ERR_OK === $error)
+        {   $fileName = normalize($name);
+            // // on utilise une expression régulière pour trouver les espaces dans une chaîne de caractères
+            // $pattern = '/\s/';
+            // // on utilise preg_replace pour les remplacer
+            // $name = preg_replace($pattern, '-', $name);
 
-            $fileName = uniqid().'-'.$name;
+            // $fileName = uniqid().'-'.$name;
 
-            // on spécifie à quel endroit on va sauvegarder nos images sur le serveur
+            // // on spécifie à quel endroit on va sauvegarder nos images sur le serveur
             $uploadsDir = 'uploads/';
 
             // sauvegarder l'image
