@@ -11,7 +11,7 @@ function getConnection(){ //Création de la fonction de connection à la DB
 
     try{
         $db = new PDO(DSN, USERNAME,MDP, $options);
-        echo 'Vous vous êtes bien connecté à la BDD';
+        // echo 'Vous vous êtes bien connecté à la BDD';
     }  catch(PDOExecption $error){
         echo 'Erreur lors de la connection à la BDD : {$error->getMessage()} ';
     }
@@ -21,7 +21,7 @@ function getConnection(){ //Création de la fonction de connection à la DB
 
 function normalize($chain){
 
-    $pattern = '/\s/';
+    $pattern = '/\s/'; // Sélectionne les espaces
     // on utilise preg_replace pour les remplacer
     $normalizedChain = preg_replace($pattern, '-', $chain);
 
@@ -29,30 +29,76 @@ function normalize($chain){
 }
 
 
-function handleForm($info)
-{ //On crée une variable pour récuépérer les information du formulaire
-    if(isset($info['fileUpload'])) 
+
+function extensionCheck($mimeType, $array) //Vérification de l'extension d'un fichier
+{ 
+
+    $mimeType= explode('/' , $mimeType);
+
+    $extension = strtolower($mimeType[1]);
+
+    if(in_array($extension,$array))
+    {
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function sizeCheck($fileSize,$maxSize) //Vérification de l'extension d'un fichier
+{ 
+
+    if($fileSize > $maxSize);
+    {
+
+        return false;
+    }
+    return true;
+}
+
+
+function handleForm($info) //Fonction de gestion du formulaire d'upload d'image
+{ 
+    if(isset($info['fileUpload'])) //On crée une variable pour récuépérer les information du formulaire
     {
         extract($info['fileUpload']);
     
         if(UPLOAD_ERR_OK === $error)
         {   
-            $authorizedExtention = {
-                '.jpg',
-                '.jpeg',
-                '.png',
-                '.svg',
-            }
-
-            $mimeType= explode('/' , $type);
-
-            $extentension = $mimeType[1];
-
-            if(in_array(!$extension,$authorizedExtention)){
-                echo "Ce type de fichier n'est pas authorisé, veuillez utiliser un fichier de type .jpg, jpeg, .png ou .svg ."
-            }
-
             
+            $authorizedExtention = [
+                'jpg',
+                'jpeg',
+                'png',
+                'svg',
+                'pdf',
+            ];
+
+            $check = extensionCheck($type, $authorizedExtention);
+            if ( $check === false){
+                echo"Ce type de fichier n'est pas autorisé, veuillez utiliser un fichier de type .jpg, jpeg, .png ou .svg .";
+                return;
+            }
+            // $mimeType= explode('/' , $type);
+
+            // $extentension = strtolower($mimeType[1]);
+
+            // if(in_array(!$extension,$authorizedExtention)){
+            //     echo "Ce type de fichier n'est pas authorisé, veuillez utiliser un fichier de type .jpg, jpeg, .png ou .svg .";
+            //     return;
+            // }
+
+            $sizeCheck = sizeCheck($size, '100000');
+            if($sizeCheck === false){
+            }
+            else
+            {    
+                echo 'Votre fichier pourrait être plus lourd de'. $maxSize-$fileSize . 'octets';
+            }
+
 
             $fileName = normalize($name);
             // // on utilise une expression régulière pour trouver les espaces dans une chaîne de caractères

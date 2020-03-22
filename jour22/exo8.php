@@ -1,30 +1,47 @@
 <?php
  //Créer une fonction de concaténation du texte
 
-function concatenerTexte($tabLettres){
+// function concatenerTexte($tabLettres){ //On pass en fonction un tableau ^^
+    
+//     $resultat = "";
 
-    // $lettres= $tabLettres[0];
-    // for($i=0; $i < count($tabLettres); $i++){
+//     foreach($tabLettres as $indice => $lettre){
 
-    //     if($i = 0){
-    //         $lettres = "$tabLettres[$i]";
-    //     }
+//         if($indice > 0){
+//             $resultat = "$resultat,"."$lettre"; 
+//         }
+//         else{
+//             $resultat = "$resultat"."$lettre";
+//         }
+//     };
 
-    //     else if($i > 0){
-    //         $lettres = ", $tabLettres[$i]";
-    //     }
-    // }
+//     return $resultat;
 
-    // return $lettres;
-    $resultat = "";
-    foreach($tabLettres as $lettre);
-    $resultat = $resultat.$lettre;
+// }
+
+
+
+// $concatenation = concatenerTexte([ 'a', 'b', 'c', 'd' ]);
+
+// echo "$concatenation"; 
+
+
+///////////////////////////////
+
+function concatenerTexte($tabLettres)
+{
+
+    $lettres = $tabLettres[0];
+    for($i=0; $i < count($tabLettres); $i++)
+    {
+    if($i > 0)
+        {
+            $lettres = "$lettres, "."$tabLettres[$i]";
+        }
+    };
+
+    return $lettres;
 }
 
-
-
 $concatenation = concatenerTexte([ 'a', 'b', 'c', 'd' ]);
-
 echo "$concatenation";
-
- // RESULTAT UN TEXTE "a,b,c,d"

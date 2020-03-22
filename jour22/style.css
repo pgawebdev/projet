@@ -1,0 +1,16 @@
+
+
+.blanc{
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    height  : 60px;
+    width   : 60px;
+}
+
+.noir{
+    background-color: black;
+    height  : 60px;
+    width   : 60px;
+}
+
