@@ -3,10 +3,19 @@ function creerUpdateSQL($tableName, $tabAsso)
 {   
     $set = "";
     $id  = "";
-    foreach($tabAsso as $cle => $value)
-    {
+    $i=0;
 
-        if($i < count($tabAsso[]))
+        for($i < count($tabAsso);i++):
+            if($tabAsso[$i] = "id") :
+                $id = $id . $cle ." = ".":".$cle;
+            endif;
+            else if($i == 0):
+                $set= $set . $cle . " = " . ":" . $cle;
+            else endif;
+            else if:
+                $set= $set . ',' . $cle . " = " . ":" . $cle;
+            else endif;
+        endfor;
         // if($cle != 'id' && $tabAsso[0] )
         // {
             
