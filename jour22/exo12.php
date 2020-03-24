@@ -4,6 +4,7 @@ function creerUpdateSQL($tableName, $tabAsso)
     $set    = "";
     $id     = "";
     $i      = 0;    
+    $check  = 0;
 
     foreach($tabAsso as $cle => $valeur)
     {
@@ -11,13 +12,14 @@ function creerUpdateSQL($tableName, $tabAsso)
         {   if($cle == "id") 
             {
                 $id= $id. $cle . " = " . ":" . $cle;
+                $check = 1;
             }
             else 
             {
              $set= $set . $cle . " = " . ":" . $cle;
             }
         }
-        else
+        else if($check == 0)
         {
             if($cle == "id") 
             {
@@ -25,36 +27,26 @@ function creerUpdateSQL($tableName, $tabAsso)
             }
             else 
             {
-                $set= $set . ' ,' . $cle . " = " . ":" . $cle;
+                $set= $set . ', ' . $cle . " = " . ":" . $cle;
             }
+        }
+
+        else
+        {
+            $set= $set . $cle . " = " . ":" . $cle ;
+            $check = 0;
         }
                 
         $i++;
     }
-        // if($cle != 'id' && $tabAsso[0] )
-        // {
-            
-          
-        //     $set = $set . $cle . " = " . ":" . $cle;
-        // }  
-        // else if ($cle = "id")
-        // {
-           
-        //     $id = $id . $cle ." = ".":".$cle;
-        // }
-        // else
-        // {
-        //     $set= $set . ',' . $cle . " = " . ":" . $cle;
-        // }
-        // return $set && $id;
     
 
-$insererSQL = "UPDATE " . $tableName . " SET " . $set . ", " . "WHERE " . $id  ;
+$insererSQL = "UPDATE " . $tableName . " SET " . $set  . " WHERE " . $id  ;
 
 
 return $insererSQL;
 }
 
-$sql = creerUpdateSQL("newsletter", [ "nom" => "julie", "email" => "julie@nomail.me", "id" => "5"]);
+$sql = creerUpdateSQL("newsletter", [ "id" => "5", "nom" => "julie", "email" => "julie@nomail.me"]);
 echo "<pre>$sql</pre>";
 ?>
