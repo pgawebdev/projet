@@ -1,21 +1,36 @@
 <?php
 function creerUpdateSQL($tableName, $tabAsso)
 {   
-    $set = "";
-    $id  = "";
-    $i=0;
+    $set    = "";
+    $id     = "";
+    $i      = 0;    
 
-        for($i < count($tabAsso);i++):
-            if($tabAsso[$i] = "id") :
-                $id = $id . $cle ." = ".":".$cle;
-            endif;
-            else if($i == 0):
-                $set= $set . $cle . " = " . ":" . $cle;
-            else endif;
-            else if:
-                $set= $set . ',' . $cle . " = " . ":" . $cle;
-            else endif;
-        endfor;
+    foreach($tabAsso as $cle => $valeur)
+    {
+        if($i == 0)
+        {   if($cle == "id") 
+            {
+                $id= $id. $cle . " = " . ":" . $cle;
+            }
+            else 
+            {
+             $set= $set . $cle . " = " . ":" . $cle;
+            }
+        }
+        else
+        {
+            if($cle == "id") 
+            {
+                $id= $id. $cle . " = " . ":" . $cle;
+            }
+            else 
+            {
+                $set= $set . ' ,' . $cle . " = " . ":" . $cle;
+            }
+        }
+                
+        $i++;
+    }
         // if($cle != 'id' && $tabAsso[0] )
         // {
             
@@ -32,10 +47,9 @@ function creerUpdateSQL($tableName, $tabAsso)
         //     $set= $set . ',' . $cle . " = " . ":" . $cle;
         // }
         // return $set && $id;
-    }
+    
 
-$insererSQL = "UPDATE " . $tableName . " SET " . $set . ", " . "WHERE" . $id  ;
-
+$insererSQL = "UPDATE " . $tableName . " SET " . $set . ", " . "WHERE " . $id  ;
 
 
 return $insererSQL;
