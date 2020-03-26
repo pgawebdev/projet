@@ -43,7 +43,6 @@ function creerUpdateSQL($tableName, $tabAsso)
 
 $insererSQL = "UPDATE " . $tableName . " SET " . $set  . " WHERE " . $id  ;
 
-
 return $insererSQL;
 }
 
