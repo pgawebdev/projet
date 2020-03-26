@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 </head>
 <body>
-    <section id ="app">
-        <h1>
-            <span id="ville"</span>
-            <span class="tooltip">Tapez le nom d'une ville</span>
-        </h1>
-
-        <i class= "wi wi-day-rain">Marseille</i>
-
-        <h2>
-            <span id="temperature">25</span>C°(<span id ="conditions"></span>)
-        </h2>
-
-    </section>
-    <script src="app.js"></script>
+   <script>
+       fetch("https://api.ipify.org/?format=json")
+    //    .then(function(response)){
+    //        return response.json()
+    //    }
+        .then (response => response.json)
+            
+        .then(function(data)
+        {
+            const ip = data.ip
+            fetch(`http://api.ipstack.com/${ip}?access_key=30c029b1d2a8dcdcdf26ac5a0e07b914`)
+            .then(function(response)
+            {
+                return response.json()
+            })
+            .then(function(data)
+            {
+                return data.json()
+            })
+        });
+   </scipt>
 </body>
 </html>
