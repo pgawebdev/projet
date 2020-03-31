@@ -1,0 +1,51 @@
+body{
+    margin:0;
+}
+.blanc{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+}
+
+.noire{
+    background-color: black;
+    height: 50px;
+    width: 50px;
+}
+
+table{
+    position: relative;
+    top:0;
+    left:0;
+    border: black;
+    border-style: solid;
+    
+}
+
+.pion{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+#a0 {
+    top: 5px;
+    left: 5px;
+}
+
+#b0 {
+    top: 60px;
+    left: 5px;
+}
+
+#c0 {
+    top: 115px;
+    left: 5px;
+}
+
+#d0 {
+    top: 170px;
+    left: 5px;
+}
