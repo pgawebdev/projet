@@ -1,3 +1,4 @@
+console.log('hello');
 function lesPions()
 {
     var tableauPions =
@@ -10,11 +11,8 @@ function lesPions()
 
     for(var a=0; a < tableauPions.length; a++)
     {
+        var mesPions = document.querySelector(".mesPions");
 
-        mesPions.innerHTML += 
-        `
-            <div class= "${tableauPions[a].equipe}Pion" id="${tableauPions[a].vertical}.${tableauPions[a].horizontal}"></div>
-
-        `
+mesPions.innerHTML += `<div class= "${tableauPions[a].equipe}Pion" id="${tableauPions[a].vertical}.${tableauPions[a].horizontal}"></div>`;
     }
 }

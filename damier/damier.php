@@ -17,9 +17,9 @@
                         echo "<tr>";
                         for ($td=0;$td<$nombredecase;$td++){
                             if (($tr+$td)%2==0)
-                                echo'<td class="blanc" id='.$tr.$td.'">' . '</td>';
+                                echo'<td class="blanc" id="'.$tr.$td.'">' . '</td>';
                             else
-                                echo'<td class="noire" id='.$tr.$td.'">' . '</td>';
+                                echo'<td class="noir" id="'.$tr.$td.'">' . '</td>';
                         }
                     echo "</tr>";
 
@@ -29,7 +29,7 @@
             dessinerDamier(10);
     ?>
     </table>
-    
+
     <div class='mesPions'></div>
     <div class = "pion" id ="a0"></div>
 </div>
