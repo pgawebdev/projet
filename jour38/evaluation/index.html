@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFeed App</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Cactus l'actu qui pique</h1>
+    </main>
+    <footer>
+
+    </footer>
+    
+    <script>
+        
+        //Stockage de l'adresse de l'API
+        const baseUrl= "http://newsapi.org/v2/top-headlines?country=fr&apiKey=67a1e7eeda5e4b8a8498ba7f372c3cfe";
+
+        //Récupération des données
+        const data = fetch(`${baseUrl}`)
+            .then (function(response)
+                {
+                return response.json();
+                }
+            )
+            .then(function(data){
+                console.log(data);
+            });
+        
+            
+    </script>
+</body>
+</html>
