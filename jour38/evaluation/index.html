@@ -11,6 +11,7 @@
     </header>
     <main>
         <h1>Cactus l'actu qui pique</h1>
+        <p>Pour le moment ce site affiche les 20 derniers gros titres pour le territoire français</p>
         <div class="affichage">
 
         </div>
@@ -37,12 +38,14 @@
                 const affichage = document.querySelector("div"); 
 
                 const articles = data.articles;
-                
+                console.log(articles)
                 for(var i = 0; i < articles.length; i++){
                     
                     const titre = articles[i].title;
-                    console.log(titre);
-                    affichage.innerHTML += `<div><h2>${titre}</h2></div>`;
+                    const description = articles[i].description;
+                    const url = articles[i].url;
+                    const urlToImage = articles[i].urlToImage;
+                    affichage.innerHTML += `<div><h2>${titre}</h2><img src="${urlToImage}"><p>${description}</p><a href='${url}'>Lire l'article</a></div>`;
                 }     
                 
             })    
