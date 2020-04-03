@@ -21,7 +21,7 @@ class Model
          $PdoStatement = $pdo->prepare($query);
          $PdoStatement->execute();
 
-         print_r($PdoStatement->fetchAll());    
+         return $PdoStatement->fetchAll();    
     }    
 
     public function createTodo($todo)
@@ -31,37 +31,32 @@ class Model
         $query = 'INSERT INTO todos(title, description) VALUES (:title, :description)';
 
         $PdoStatement = $pdo->prepare($query);
-        $PdoStatement->execute($todo);   
+        return $PdoStatement->execute($todo);   
     }
 
-    public function updateTodo()
-    {
-        $pdo = $this->getConnection();
-        $query = 'UPDATE `todos` SET `title`=:title,`description`= :description WHERE 1';
-
-        $PdoStatement = $pdo->prepare($query);
-
-        return $PdoStatement->execute($todo);
-    }
-    
-    // public function deleteTodo()
+    // public function updateTodo()
     // {
     //     $pdo = $this->getConnection();
-    //     $query = 'DELETE FROM `todos` WHERE 0';
+    //     $query = 'UPDATE `todos` SET `title`=:title,`description`= :description WHERE 1';
 
     //     $PdoStatement = $pdo->prepare($query);
-    //     $PdoStatement->execute();   
+
+    //     return $PdoStatement->execute($todo);
     // }
+    
+    public function deleteTodo($todo)
+    {
+        $pdo = $this->getConnection();
+        $query = 'DELETE FROM `todos` WHERE id = :id';
+
+        $PdoStatement = $pdo->prepare($query);
+        $values =[
+            'id' => $todo['id'],
+        ];
+
+       return $PdoStatement->execute($values);   
+    }
 }    
 
 
-$model = new Model();
 
-$response = $model->createTodo([
-    "title" => "Test",
-    "description" => "Test desc",
-]);
-
-var_dump($response);
-
-$model->getTodos();

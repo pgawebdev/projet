@@ -25,7 +25,7 @@
         try
         {
             $this->conn = new PDO($this->dsn, $this->username, $this->pwd, $this->options);
-            echo 'connexion OK';
+           
         }
         catch(PDOException $error)
         {

@@ -23,7 +23,7 @@
                 <button type="submit">Enregistrer la tâche</button>
             </form>
         </div>
-        <div>
+        <div class="todos">
             <h2>Affichage de la TodoList</h2>
         </div>
     </main>
