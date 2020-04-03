@@ -11,6 +11,10 @@
     </header>
     <main>
         <h1>Cactus l'actu qui pique</h1>
+        <div class="actus">
+
+        </div>
+
     </main>
     <footer>
 
@@ -29,10 +33,10 @@
                 }
             )
             .then(function(data){
-                console.log(data);
+                let articles = data.articles;
+                console.log(articles);
             });
         
-            
     </script>
 </body>
 </html>
