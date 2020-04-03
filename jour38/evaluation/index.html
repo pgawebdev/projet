@@ -34,19 +34,18 @@
             )
             .then(function(data){
 
-                const affichage = document.querySelector("affichage");    
+                const affichage = document.querySelector("div"); 
 
                 const articles = data.articles;
                 
-
                 for(var i = 0; i < articles.length; i++){
+                    
                     const titre = articles[i].title;
                     console.log(titre);
-                }
-
-            })
-
-            
+                    affichage.innerHTML += `<div><h2>${titre}</h2></div>`;
+                }     
+                
+            })    
             
             ;
         
