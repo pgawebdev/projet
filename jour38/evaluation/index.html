@@ -36,10 +36,12 @@
 
                 const affichage = document.querySelector("affichage");    
 
-                let articles = data.articles;
+                const articles = data.articles;
+                
 
-                for(var i=0; i < articles.lenght; i++){
-                    
+                for(var i = 0; i < articles.length; i++){
+                    const titre = articles[i].title;
+                    console.log(titre);
                 }
 
             })
