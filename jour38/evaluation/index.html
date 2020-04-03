@@ -11,7 +11,7 @@
     </header>
     <main>
         <h1>Cactus l'actu qui pique</h1>
-        <div class="actus">
+        <div class="affichage">
 
         </div>
 
@@ -33,9 +33,20 @@
                 }
             )
             .then(function(data){
+
+                const affichage = document.querySelector("affichage");    
+
                 let articles = data.articles;
-                console.log(articles);
-            });
+
+                for(var i=0; i < articles.lenght; i++){
+                    
+                }
+
+            })
+
+            
+            
+            ;
         
     </script>
 </body>
