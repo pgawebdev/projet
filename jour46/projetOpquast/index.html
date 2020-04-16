@@ -27,17 +27,20 @@
     const randWord = document.querySelector('#randWord')
     const resultDiv = document.querySelector('#result')
 
-    randPractice.addEventListener
+    randWord.addEventListener
     ("click",function()
         {
-            fetch(`${pratiques}`)
+            fetch(`data/JsonConvert.php`)
             .then(function(response)
-                    {
-                        console.log(response)
-                        return response.json();
+                    {  
+                       return response.json();
                     }
                 )
-
+            .then(function(data)
+                {
+                    console.log(data);
+                }
+            )
         }
 
     )
