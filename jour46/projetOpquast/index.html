@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opquast Project</title>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+    <main>
+        
+        <button id="randPractice">Afficher une bonne pratique</button>
+        <button id="randWord">Afficher un terme du glossaire</button>
+        <div id="result"></div>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script>
+    const glossaire = "data/glossary.php";
+    const pratiques = "data/practice.php";
+    const randPractice = document.querySelector('#randPractice')
+    const randWord = document.querySelector('#randWord')
+    const resultDiv = document.querySelector('#result')
+
+    randPractice.addEventListener
+    ("click",function()
+        {
+            fetch(`${pratiques}`)
+            .then(function(response)
+                    {
+                        console.log(response)
+                        return response.json();
+                    }
+                )
+
+        }
+
+    )
+</script>
+
+</html>
