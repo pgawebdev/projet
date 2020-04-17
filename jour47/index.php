@@ -1,35 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="" method="POST">
+    <p>clickez pour envoyer les messages en base de donnée</p>
+    <input type="hidden" name="identifiantFormulaire" value="insert">
+    <button type="submit">Click me</button>
 
-require_once 'php/datas.php';
-
-$jsonConvert = json_decode($posts);
-$sql=
-<<<SQLCODE
-    INSERT INTO jour47 (
-        userID,
-        title,
-        body)
-    VALUES  
-SQLCODE;
-
-for ($i =0; $i < count($jsonConvert); $i++){
-
-
-$userID = $jsonConvert[$i]->userId;
-$title =$jsonConvert[$i]->title;
-$body =$jsonConvert[$i]->body;
-
-
-$sql = $sql.
-<<<SQLCODE
-    (
-        $userID,
-        $title,
-        $body
-    )
-SQLCODE;
-};
-
-
-
-echo $sql;
+    <?php 
+                //Affectation de la valeur "create" à la requête
+                $identifiantFormulaire = $_REQUEST["identifiantFormulaire"] ?? "";
+                if ($identifiantFormulaire == "insert") {
+                //Envoie du formulaire à la bdd
+                require 'php/convert.php';  
+                }                      
+            ?>
+</form>
+</body>
+</html>
