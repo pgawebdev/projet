@@ -6,16 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-      <?php require_once 'process.php';?>
-      
     <h1>Projet Opquast</h1>
     <p>
       Afficher un terme au hasard dans le glossaire
-      <button id="glossary">Go !</button>
+      <button id="glossary" data-id = "glossary">Go !</button>
     </p>
     <p>
       Afficher un terme au hasard dans les bonnes pratiques
-      <button id="practices">Go !</button>
+      <button id="practice" data-id = "practice">Go !</button>
     </p>
     <script src="app.js"></script>
   </body>

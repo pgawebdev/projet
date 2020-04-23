@@ -8,17 +8,9 @@
 <body>
 <form action="" method="POST">
     <p>clickez pour envoyer les messages en base de donnée</p>
-    <input type="hidden" name="identifiantFormulaire" value="insert">
     <button type="submit">Click me</button>
 
-    <?php 
-                //Affectation de la valeur "create" à la requête
-                $identifiantFormulaire = $_REQUEST["identifiantFormulaire"] ?? "";
-                if ($identifiantFormulaire == "insert") {
-                //Envoie du formulaire à la bdd
-                require 'php/convert.php';  
-                }                      
-            ?>
+    <?php require 'php/convert.php'; ?>
 </form>
 </body>
 </html>

@@ -6,4 +6,4 @@ $pdo = new PDO("mysql:host=localhost;dbname=jour47;charset=utf8;", "root", "");
 $pdoStatement = $pdo->prepare($sql);
 
 //on fournit les données extérieurs à part 
-$pdoStatement->execute($jsConvert);
+$pdoStatement->execute();
