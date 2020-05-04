@@ -13,36 +13,21 @@ echo $html;
     foreach($tabBillets as $billet => $qt) 
     {   
     $dispo      = $billet*$qt;
-    $totalDispo = $totalDispo + $dispo;
+    $totalDispo += $dispo;
     }
 
-    if ($totalDispo < $montantDemande)//On check si on a suffisement de billets pour répondre à la demande
+    if ($totalDispo > $montantDemande)//On check si on a suffisament de billets pour répondre à la demande
     {
         $etat = 
-<<<HTML
-    <p>Montant indisponible.</p>
-HTML;
-        echo $etat;
-    }
-
-    else
-    {
-        $etat =
 <<<HTML
     <p>Montant disponible.</p>
 HTML;
         echo $etat;
-
         foreach($tabBillets as $billet => $qt){
 
             $quotient = intval($montantDemande/$billet);//Pour chaque billet calcul du nombre à distribuer
 
-            if($montantDemande == 0)//Si le montant est atteint on met fin à la boucle.
-            { 
-                    return;
-            }
-
-            else if($quotient <= 0)
+           if($quotient <= 0)
             {
                 $vosBillets = $vosBillets;
                 $montantDemande = $montantDemande;
@@ -62,11 +47,21 @@ HTML;
                 echo $vosBillets;
             }                                                                   
         }
+    }
+
+    else
+    {
+        $etat =
+<<<HTML
+    <p>Montant indisponible.</p>
+HTML;
+        echo $etat;
+
     }        
 };
 
 $tabBillets = ["200" => 2, "100" => 4, "50"=> 8, "20"=> 20, "10"=> 40, "5" => 80];
-$montantDemande = 95;
+$montantDemande = 795;
 
 $billetsDonne = totalBillet($tabBillets, $montantDemande);
 
