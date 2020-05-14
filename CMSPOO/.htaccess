@@ -1,0 +1,9 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On                               #Active la focntion de réécriture #
+RewriteBase /projet/CMSPOO/                     
+RewriteRule index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /projet/CMSPOO/index/.php [L]
+</IfModule>
