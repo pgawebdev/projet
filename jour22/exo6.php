@@ -25,3 +25,5 @@ function sommeTab($tab){
 
 $total= sommeTab([86,19,28]);
  echo "Le total est de $total.";
+
+ function sommeTab($tab)[]
