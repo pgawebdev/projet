@@ -1,1 +1,0 @@
-<h1>Vous êtes perdus !</h1>
