@@ -9,6 +9,7 @@ const composit = url + apiKey + format + coordo + lang;
 
 //Selection elements du DOM
 const affichage = document.querySelector(".affichage");
+const hours = document.querySelector("#hours");
 const temp = document.querySelector("#temp");
 //Selection elements du DOM
 
@@ -24,7 +25,7 @@ function datation() {
     let frenchifiedDate = day.toLocaleDateString("fr-FR", options);
     jours.insertAdjacentHTML(
       "beforeend",
-      "<button class='jour'>" + frenchifiedDate + "</button>"
+      "<button id='day"+(index+1)+"'>" + frenchifiedDate + "</button>"
     );
     nextDay.setDate(day.getDate() + 1);
     day = nextDay;
@@ -36,6 +37,7 @@ function datation() {
   });
 }
 //Affichage des bouttons de selection du jour
+
 
 function afficherJour() {
   console.log("click");
@@ -82,12 +84,15 @@ fetch(composit)
   })
 
   .then(function (donnees) {
-    let hour = myHour;
-    console.log(donnees.data);
-    weather = donnees.data.weather[0];
-    console.log(weather);
 
-    temperature = "weather." + hour + ".tempC";
-    let tempC = temperature;
-    temp.insertAdjacentHTML("beforeend", "<th>" + tempC + "</th>");
+    console.log(donnees.data);
+    hourly = donnees.data.weather[0].hourly;
+    console.log(hourly);
+
+    hourly.forEach(element => {
+      var displayedHours = hourly.time;
+      console.log(displayedHours);
+      hours.insertAdjacentHTML("beforeend", "<th>" + displayedHours+ "</th>");
+    })
+    
   });
