@@ -1,17 +1,81 @@
-//Constantes de connexion à l'API météo
-const url = "https://api.worldweatheronline.com/premium/v1/marine.ashx?";
-const apiKey = "key=ecee7b212ba24962b89131213201006";
-const format = "&format=json";
-const coordo = "&q=43.525,7.011";
-const lang = "&lang=fr";
-const composit = url + apiKey + format + coordo + lang;
-//Constantes de connexion à l'API météo
 
 //Selection elements du DOM
-const affichage = document.querySelector(".affichage");
-const hours = document.querySelector("#hours");
-const temp = document.querySelector("#temp");
+
 //Selection elements du DOM
+
+//Appel API
+function ApiCall() {
+  fetch(composit)
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then(function (donnees) {
+      let hour = myHour;
+      console.log(donnees.data);
+
+      if (typeof selectedDay == "undefined") {
+        var dayId = 0;
+      } else {
+        var dayId = selectedDay;
+      }
+
+      hourId = 0;
+      weatherDay = donnees.data.weather[dayId];
+      hours = weatherDay.hourly;
+
+      //Boucle sur les heures
+      hours.forEach((element) => {
+        //Recuperation des donnees
+        temperature = element.tempC;
+        icon = element.weatherIconUrl[0].value;
+
+        //Récupération données vent
+        vitVent = element.windspeedKmph; //Vitesse en Km/h
+        windSpeed = Math.round(vitVent * 0.54); // Conversion en noeuds marins/heure
+        rafales = element.WindGustKmph;
+        windGust = Math.round(rafales * 0.54);
+        windDir = element.winddirDegree;
+        //Fin récupération données vent
+
+        //Recuperation donnees mer
+        merTotal = element.sigHeight_m;
+        directionHoule = element.swellDir;
+        seaTemperature = element.waterTemp_C;
+        //Fin recuperation donnees mer
+        //Fin récupération des donnees
+
+        //Affichage
+        
+        icons.insertAdjacentHTML("beforeend", "<td><img src='" + icon + "'></img></td>");
+
+        temp.insertAdjacentHTML("beforeend", "<td>" + temperature + "</td>");
+        windsSpeed.insertAdjacentHTML(
+          "beforeend",
+          "<td>" + windSpeed + "</td>"
+        );
+        gust.insertAdjacentHTML("beforeend", "<td>" + windGust + "</td>");
+        windDirection.insertAdjacentHTML(
+          "beforeend",
+          "<td>" + windDir + "</td>"
+        );
+        merTot.insertAdjacentHTML("beforeend", "<td>" + merTotal + "</td>");
+        dirHoule.insertAdjacentHTML(
+          "beforeend",
+          "<td>" + directionHoule + "</td>"
+        );
+        seaTemp.insertAdjacentHTML(
+          "beforeend",
+          "<td>" + seaTemperature + "</td>"
+        );
+        //Affichage
+
+        hourId++;
+      });
+      //Fin boucle heures
+    });
+}
+//Fin appel API
 
 //Variables traitement Date
 var day = new Date();
@@ -23,9 +87,13 @@ const options = { weekday: "short", day: "numeric" };
 function datation() {
   for (index = 0; index <= 6; index++) {
     let frenchifiedDate = day.toLocaleDateString("fr-FR", options);
-    jours.insertAdjacentHTML(
+    days.insertAdjacentHTML(
       "beforeend",
-      "<button id='day"+(index+1)+"'>" + frenchifiedDate + "</button>"
+      "<button class='jour' id='j" +
+        index +
+        "'>" +
+        frenchifiedDate +
+        "</button>"
     );
     nextDay.setDate(day.getDate() + 1);
     day = nextDay;
@@ -36,11 +104,14 @@ function datation() {
     balise.addEventListener("click", afficherJour);
   });
 }
-//Affichage des bouttons de selection du jour
+//Fin affichage des bouttons de selection du jour
 
-
+//Le click permet d'afficher les info du jour selectionné
 function afficherJour() {
-  console.log("click");
+  var myId = this.id;
+  splitId = myId.trim().split("");
+  selectedDay = splitId[1];
+  ApiCall();
 }
 
 //Sera utilisé pour le widget affichant les donnees du moment
@@ -77,22 +148,4 @@ switch (true) {
 
 datation();
 
-console.log(myHour);
-fetch(composit)
-  .then(function (response) {
-    return response.json();
-  })
-
-  .then(function (donnees) {
-
-    console.log(donnees.data);
-    hourly = donnees.data.weather[0].hourly;
-    console.log(hourly);
-
-    hourly.forEach(element => {
-      var displayedHours = hourly.time;
-      console.log(displayedHours);
-      hours.insertAdjacentHTML("beforeend", "<th>" + displayedHours+ "</th>");
-    })
-    
-  });
+ApiCall();
