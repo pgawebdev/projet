@@ -1,6 +1,6 @@
-
 //Selection elements du DOM
-
+const iconsDom = document.querySelector("#icons");
+const rows = document.querySelectorAll("tbody tr");
 //Selection elements du DOM
 
 //Appel API
@@ -11,13 +11,14 @@ function ApiCall() {
     })
 
     .then(function (donnees) {
-      let hour = myHour;
-      console.log(donnees.data);
-
       if (typeof selectedDay == "undefined") {
         var dayId = 0;
       } else {
         var dayId = selectedDay;
+        rows.forEach((element) => {
+          var cellOne = element.firstElementChild.innerHTML;
+          element.innerHTML = "<td>" + cellOne + "</td>";
+        });
       }
 
       hourId = 0;
@@ -31,11 +32,13 @@ function ApiCall() {
         icon = element.weatherIconUrl[0].value;
 
         //Récupération données vent
+
         vitVent = element.windspeedKmph; //Vitesse en Km/h
         windSpeed = Math.round(vitVent * 0.54); // Conversion en noeuds marins/heure
         rafales = element.WindGustKmph;
         windGust = Math.round(rafales * 0.54);
         windDir = element.winddirDegree;
+        dirVent = element.winddir16Point;
         //Fin récupération données vent
 
         //Recuperation donnees mer
@@ -46,9 +49,9 @@ function ApiCall() {
         //Fin récupération des donnees
 
         //Affichage
-        
-        icons.insertAdjacentHTML("beforeend", "<td><img src='" + icon + "'></img></td>");
 
+        // icons.insertAdjacentHTML("beforeend", "<td><img src='" + icon + "'></img></td>");
+        iconsDom.innerHTML += "<td><img src='" + icon + "'></img></td>";
         temp.insertAdjacentHTML("beforeend", "<td>" + temperature + "</td>");
         windsSpeed.insertAdjacentHTML(
           "beforeend",
@@ -58,6 +61,10 @@ function ApiCall() {
         windDirection.insertAdjacentHTML(
           "beforeend",
           "<td>" + windDir + "</td>"
+        );
+        directionVent.insertAdjacentHTML(
+          "beforeend",
+          "<td>" + dirVent + "</td>"
         );
         merTot.insertAdjacentHTML("beforeend", "<td>" + merTotal + "</td>");
         dirHoule.insertAdjacentHTML(
@@ -108,8 +115,8 @@ function datation() {
 
 //Le click permet d'afficher les info du jour selectionné
 function afficherJour() {
-  var myId = this.id;
-  splitId = myId.trim().split("");
+  var btnId = this.id;
+  splitId = btnId.trim().split("");
   selectedDay = splitId[1];
   ApiCall();
 }
