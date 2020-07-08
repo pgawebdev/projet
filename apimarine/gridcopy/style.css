@@ -1,0 +1,33 @@
+body{
+    margin:40px;
+}
+#tableau{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(9, 1fr ) ;
+    grid-template-rows: repeat(11, [row] auto  );
+    grid-template-areas: "icons";
+    background-color: #fff;
+    color: #444;
+}
+
+#heures, #icons, #temp, #windsSpeed, #gust, #windDirectionDeg, #windDirection, #merTot, #dirHoule, #seaTemp {
+    display: grid;
+    grid-gap: 10px;
+    grid-column: 2 /10;
+    grid-template-columns: repeat(8, [col] 1fr ) ;
+    background-color: #fff;
+    color: #444;
+}
+
+
+#labels{
+    display: grid;
+    grid-gap: 10px;
+    grid-row: 2 /12;
+    grid-template-rows: repeat(10, [row] 1fr ) ;
+    background-color: #fff;
+    color: #444;
+    text-align: center;
+}
+
