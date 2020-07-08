@@ -11,9 +11,7 @@ function ApiCall() {
     })
 
     .then(function (donnees) {
-      console.log(donnees.data);
       if (typeof selectedDay == "undefined") {
-
         var dayId = 0;
       } else {
         var dayId = selectedDay;
